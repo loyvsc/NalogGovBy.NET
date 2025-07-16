@@ -1,5 +1,5 @@
 # NalogGovBy.NET
-C# library for interacting with [nalog.gov.by API](http://grp.nalog.gov.by/grp/rest-api)
+C# library for interacting with nalog.gov.by API's
 
 ## Installation
 
