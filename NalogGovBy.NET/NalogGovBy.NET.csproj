@@ -9,7 +9,7 @@
         <Description>C# library for interacting with nalog.gov.by API</Description>
         <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/loyvsc/NalogGovBy</RepositoryUrl>
-        <Version>1.0.0</Version>
+        <Version>1.1.0</Version>
         <Copyright>2025 - loyvsc</Copyright>
     </PropertyGroup>
 
