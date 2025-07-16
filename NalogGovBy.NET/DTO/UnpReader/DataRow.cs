@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace NalogGovBy.NET.DTO;
+namespace NalogGovBy.NET.DTO.UnpReader;
 
 internal class DataRow
 {

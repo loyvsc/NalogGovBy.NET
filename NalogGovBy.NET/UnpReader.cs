@@ -1,7 +1,7 @@
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using NalogGovBy.NET.DTO;
+using NalogGovBy.NET.DTO.UnpReader;
 using NalogGovBy.NET.Exceptions;
 
 namespace NalogGovBy.NET;

@@ -1,5 +1,5 @@
 using NalogGovBy.NET;
-using NalogGovBy.NET.DTO;
+using NalogGovBy.NET.DTO.UnpReader;
 using NalogGovBy.NET.Exceptions;
 
 namespace NalogGovBy.Tests;
