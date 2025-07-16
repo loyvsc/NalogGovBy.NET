@@ -10,9 +10,9 @@ namespace NalogGovBy.NET;
 
 public class PortalClient : IPortalClient
 {
-    protected HttpClient HttpClient { get; set; }
+    public virtual HttpClient HttpClient { get; private protected set; }
     
-    protected const string BaseUrl = "https://portal.nalog.gov.by:8443/";
+    private protected string BaseUrl = "https://portal.nalog.gov.by:8443";
 
     public PortalClient()
     {
@@ -23,12 +23,12 @@ public class PortalClient : IPortalClient
         HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
     }
     
-    public DocumentResponse ImportDocument(DocumentRequest request)
+    public virtual DocumentResponse ImportDocument(DocumentRequest request)
     {
         return ImportDocumentAsync(request).ConfigureAwait(false).GetAwaiter().GetResult();
     }
 
-    public async Task<DocumentResponse> ImportDocumentAsync(DocumentRequest request)
+    public virtual async Task<DocumentResponse> ImportDocumentAsync(DocumentRequest request)
     {
         ThrowIfValidationFained(request);
         
@@ -49,12 +49,12 @@ public class PortalClient : IPortalClient
         return result;
     }
 
-    public DocumentResponse OfftakeDocument(DocumentRequest request)
+    public virtual DocumentResponse OfftakeDocument(DocumentRequest request)
     {
         return OfftakeDocumentAsync(request).ConfigureAwait(false).GetAwaiter().GetResult();
     }
 
-    public async Task<DocumentResponse> OfftakeDocumentAsync(DocumentRequest request)
+    public virtual async Task<DocumentResponse> OfftakeDocumentAsync(DocumentRequest request)
     {
         ThrowIfValidationFained(request);
         
@@ -75,12 +75,12 @@ public class PortalClient : IPortalClient
         return result;
     }
 
-    public DocumentResponse ProduceDocument(DocumentRequest request)
+    public virtual DocumentResponse ProduceDocument(DocumentRequest request)
     {
         return ProduceDocumentAsync(request).ConfigureAwait(false).GetAwaiter().GetResult();
     }
 
-    public async Task<DocumentResponse> ProduceDocumentAsync(DocumentRequest request)
+    public virtual async Task<DocumentResponse> ProduceDocumentAsync(DocumentRequest request)
     {
         ThrowIfValidationFained(request);
         
@@ -101,12 +101,12 @@ public class PortalClient : IPortalClient
         return result;
     }
 
-    public DocumentResponse StocktakeDocument(DocumentRequest request)
+    public virtual DocumentResponse StocktakeDocument(DocumentRequest request)
     {
         return StocktakeDocumentAsync(request).ConfigureAwait(false).GetAwaiter().GetResult();
     }
 
-    public async Task<DocumentResponse> StocktakeDocumentAsync(DocumentRequest request)
+    public virtual async Task<DocumentResponse> StocktakeDocumentAsync(DocumentRequest request)
     {
         ThrowIfValidationFained(request);
         
@@ -128,7 +128,7 @@ public class PortalClient : IPortalClient
     }
 
     [DoesNotReturn]
-    private static void ThrowIfValidationFained(DocumentRequest request)
+    protected virtual void ThrowIfValidationFained(DocumentRequest request)
     {
         if (request == null)
         {
@@ -142,7 +142,7 @@ public class PortalClient : IPortalClient
     }
 
     [DoesNotReturn]
-    private static void ThrowIfFailed(DocumentResponse? result)
+    protected virtual void ThrowIfFailed(DocumentResponse? result)
     {
         if (result?.StatusCode.IsSuccessful() == false)
         {

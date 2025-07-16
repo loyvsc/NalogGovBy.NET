@@ -4,6 +4,8 @@ namespace NalogGovBy.NET.Interfaces;
 
 public interface IPortalClient
 {
+    public HttpClient HttpClient { get; }
+    
     public DocumentResponse ImportDocument(DocumentRequest request);
     public Task<DocumentResponse> ImportDocumentAsync(DocumentRequest request);
     
