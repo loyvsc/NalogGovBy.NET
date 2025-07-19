@@ -10,6 +10,8 @@ namespace NalogGovBy.NET;
 
 public class PortalClient : IPortalClient
 {
+    public static PortalClient Instance = new PortalClient();
+
     public virtual HttpClient HttpClient { get; private protected set; }
     
     private protected string BaseUrl = "https://portal.nalog.gov.by:8443";

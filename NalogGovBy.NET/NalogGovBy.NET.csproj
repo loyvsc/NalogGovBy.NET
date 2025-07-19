@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFrameworks>net9.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>default</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Title>NalogGovBy</Title>
@@ -9,8 +10,15 @@
         <Description>C# library for interacting with nalog.gov.by API</Description>
         <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/loyvsc/NalogGovBy</RepositoryUrl>
-        <Version>1.1.0</Version>
+        <Version>1.1.1</Version>
         <Copyright>2025 - loyvsc</Copyright>
     </PropertyGroup>
 
+    <Choose>
+        <When Condition=" '$(TargetFramework)' == 'netstandard2.1'">
+            <ItemGroup>
+                <PackageReference Include="System.Text.Json" Version="9.0.7" />
+            </ItemGroup>
+        </When>
+    </Choose>
 </Project>
