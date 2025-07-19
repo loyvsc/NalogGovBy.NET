@@ -6,12 +6,11 @@ using NalogGovBy.NET.Exceptions;
 
 namespace NalogGovBy.NET;
 
-public partial class UnpReader : IDisposable
+public class UnpReader : IDisposable
 {
     public HttpClient HttpClient { get; set; }
-    
-    [GeneratedRegex("[a-zA-Zа-яА-Я]")]
-    private static partial Regex CompanyUnpRegex();
+
+    private readonly Regex _companyUnpRegex = new Regex("[a-zA-Zа-яА-Я]");
 
     public UnpReader()
     {
@@ -29,7 +28,7 @@ public partial class UnpReader : IDisposable
     /// <exception cref="NalogGovByArgumentException">An exception is raised when the unp is incorrect</exception>
     public virtual async Task<CompanyInfo> GetCompanyInfoByUnp(string unp)
     {
-        if (CompanyUnpRegex().IsMatch(unp))
+        if (_companyUnpRegex.IsMatch(unp))
         {
             throw new NalogGovByArgumentException("Unp can't contain letters");
         }
