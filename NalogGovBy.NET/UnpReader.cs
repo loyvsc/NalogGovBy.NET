@@ -8,6 +8,8 @@ namespace NalogGovBy.NET;
 
 public class UnpReader : IDisposable
 {
+    public static UnpReader Instance = new UnpReader();
+    
     public HttpClient HttpClient { get; set; }
 
     private readonly Regex _companyUnpRegex = new Regex("[a-zA-Zа-яА-Я]");
